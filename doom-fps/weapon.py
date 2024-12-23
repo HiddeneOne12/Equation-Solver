@@ -18,7 +18,7 @@ class Weapon(AnimatedSprite):
             self.game.player.shot = False
             if self.animation_trigger:
                 self.images.rotate(+1)
-                self.image =self.images[5]
+                self.image = self.images[5]
                 self.frame_counter += 1
                 if self.frame_counter == self.num_images:
                     self.reloading = False

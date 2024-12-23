@@ -27,8 +27,10 @@ class ObjectRenderer:
         
     def player_damage(self):
         self.screen.blit(self.blood_screen,(0,0))
+        
     def game_over(self):
-        self.screen.blit(self.game_over_image,(0,0))       
+        self.screen.blit(self.game_over_image,(0,0))    
+           
     def draw_background(self):
         self.sky_offset = (self.sky_offset + 4.5 * self.game.player.rel) % WIDTH
         self.screen.blit(self.sky_image,(-self.sky_offset,0))
@@ -40,6 +42,7 @@ class ObjectRenderer:
         list_objects  =sorted(self.game.raycasting.objects_to_render,key=lambda t:t[0], reverse=True)   
         for depth , image , pos in list_objects:
             self.screen.blit(image,pos)
+            
     @staticmethod
     def get_textures(path ,res= (TEXTURE_SIZE,TEXTURE_SIZE)):
         texture =pg.image.load(path).convert_alpha()

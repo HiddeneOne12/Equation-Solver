@@ -29,6 +29,7 @@ class RayCasting():
                 wall_pos = (ray * SCALE, 0)     
                  
             self.objects_to_render.append((depth,wall_column,wall_pos))
+            
     def ray_cast(self):
         self.ray_casting_result = []
         ox , oy = self.game.player.pos

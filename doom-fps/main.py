@@ -34,6 +34,7 @@ class Game :
         self.path_finding = PathFinding(self)
         # self.sprites_object = SpriteObject(self)
         # self.animated_sprites = AnimatedSprite(self)
+        
     def update(self):
         self.player.update()
         self.raycasting.update()
@@ -44,12 +45,14 @@ class Game :
         pg.display.flip()
         self.delta_time = self.clock.tick(fps)
         pg.display.set_caption("DOOM SLAYER")
+        
     def draw(self):
         # self.screen.fill("black")
         self.object_renderer.draw()
         self.weapon.draw()
         # self.map.draw()
         # self.player.draw()
+        
     def check_events(self):
         self.global_trigger = False
         for event in pg.event.get():
@@ -59,6 +62,7 @@ class Game :
             elif event.type == self.global_event:
                 self.global_trigger = True
             self.player.single_shot_event(event)
+            
     def run(self):
         while True:
             self.check_events()

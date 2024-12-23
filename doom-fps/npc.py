@@ -59,9 +59,10 @@ class NPC(AnimatedSprite):
     def animate_death(self):
         if not self.alive:
             if self.game.global_trigger and self.frame_counter  < len(self.death_images) - 1:
-                self.death_images.rotate(-1)
-                self.image = self.death_images[0]
+                self.death_images.rotate(+1)
+                self.image = self.death_images[len(self.death_images) - 1]
                 self.frame_counter += 1
+                
     def check_hit_in_npc(self):
         if self.ray_casting_value and self.game.player.shot:
             if HALF_WIDTH -self.sprite_half_width < self.screen_x < HALF_WIDTH + self.sprite_half_width:
